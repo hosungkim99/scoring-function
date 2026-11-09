@@ -1,0 +1,83 @@
+{
+  "version": "freeze_0.1.0",
+  "name": "co-folding pose 재순위화기 (GT-free Top-k 선별)",
+  "scoring_function": {
+    "stage1_model": {
+      "kind": "xgboost booster (rank:ndcg)",
+      "file": "model.json",
+      "features": [
+        "affinity_score_only",
+        "cnn_affinity_score_only",
+        "cnn_score_score_only",
+        "lig_bond_len_max_A",
+        "ligand_sasa_complex_A2",
+        "pl_min_distance_A",
+        "top_pocket_score"
+      ],
+      "objective": "rank:ndcg",
+      "group": "system_id",
+      "n_estimators": 400,
+      "max_depth": 6,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "tree_method": "hist",
+      "ndcg_exp_gain": false,
+      "lambdarank_pair_method": "topk",
+      "missing": "NaN 그대로 넣습니다. 0 으로 채우면 안 됩니다."
+    },
+    "stage2_rule": {
+      "name": "ruleA",
+      "definition": "점수 내림차순으로 순회하며 생성기가 처음 나오면 먼저 담고, 이미 쓴 생성기는 뒤로 보냅니다. 그 순서에서 앞 k개.",
+      "generator_column": "model",
+      "why": "모델은 1등은 잘 고르지만 2~5등을 고르면 비슷한 포즈끼리 뭉칩니다. 이 규칙이 test k=3/5 이득의 대부분을 법니다.",
+      "tie_break": "pose_id SHA1 오름차순 (생성기와 무관해야 공평합니다)"
+    }
+  },
+  "training_only": {
+    "relevance_bins": {
+      "scheme": "asymmetric",
+      "bins": [
+        [
+          1.0,
+          11
+        ],
+        [
+          2.0,
+          10
+        ],
+        [
+          3.0,
+          2
+        ],
+        [
+          5.0,
+          1
+        ]
+      ],
+      "why": "평가는 2A 이진이므로 성공 경계만 크게 벌리고 1A 과 1.9A 는 거의 구별하지 않습니다."
+    },
+    "label_source": "sc_rmsd",
+    "mask": "label_known",
+    "note": "sc_rmsd 는 학습에만 쓰입니다. 추론에는 정답이 필요 없습니다."
+  },
+  "evaluation": {
+    "metric": "타깃별 Top-k 안에 sc_rmsd < 2A pose 가 1개 이상",
+    "strict_less_than": true,
+    "selection_rule_for_reported_numbers": "ruleA"
+  },
+  "designated_seed": 20261102,
+  "ensemble_is_reference_only": true,
+  "provenance_steps": {
+    "28": "기준선. NaN 유지, 0 채우기 금지 결정",
+    "29": "랭킹 목적함수와 그룹=시스템",
+    "30": "등급 relevance",
+    "31": "2x2 결합과 선택 규칙 A/B",
+    "32": "feature 수 사다리 (5개와 57개가 같음)",
+    "33": "조합 탐색 (1,294개)",
+    "34": "합집합 비교, 7집합",
+    "35": "test 923 평가 (조합 기여 재현 실패 확인)",
+    "36": "부분집합 분포 (7개 위 추가는 무의미)",
+    "37": "이 실행 — 굳히기"
+  }
+}

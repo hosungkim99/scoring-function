@@ -1,0 +1,23 @@
+{
+  "outputs_written": true,
+  "selection_finished": true,
+  "status": "SELECTION_COMPLETE",
+  "chosen_config": "top10",
+  "chosen_n_features": 10,
+  "best_headline_lift": 0.024,
+  "headline_comparison": {
+    "best_single_k1": {
+      "feature": "lig_bond_len_mean_A",
+      "lift": 0.0335
+    },
+    "best_single_k5_hard": {
+      "feature": "affinity_score_only",
+      "lift": 0.0796
+    },
+    "ensemble_k1": 0.0481,
+    "ensemble_k5_hard": 0.1288,
+    "combination_gain_k1": 0.0146,
+    "combination_gain_k5_hard": 0.0492
+  },
+  "sources_unchanged": true
+}

@@ -1,0 +1,46 @@
+{
+  "decision": "kept",
+  "label": "adopted_33",
+  "n_features": 11,
+  "features": [
+    "affinity_score_only",
+    "cnn_affinity_score_only",
+    "cnn_score_score_only",
+    "lig_bond_len_max_A",
+    "lig_bond_len_min_A",
+    "lig_fraction_csp3",
+    "ligand_atoms_lt_3A",
+    "ligand_sasa_complex_A2",
+    "pl_min_distance_A",
+    "protein_residues_lt_4A",
+    "top_pocket_score"
+  ],
+  "standalone": [
+    "affinity_score_only",
+    "cnn_affinity_score_only",
+    "cnn_score_score_only",
+    "lig_bond_len_max_A",
+    "ligand_sasa_complex_A2",
+    "pl_min_distance_A",
+    "top_pocket_score"
+  ],
+  "combination_only": [
+    "lig_bond_len_min_A",
+    "lig_fraction_csp3",
+    "ligand_atoms_lt_3A",
+    "protein_residues_lt_4A"
+  ],
+  "rule": {
+    "sigma_k1": 2.0,
+    "sigma_hard": 1.0,
+    "floors": {
+      "k1": 0.002,
+      "hard": 0.01
+    },
+    "tie_break": "feature 수 최소",
+    "pre_registered": true,
+    "threshold_k1": 0.0637,
+    "threshold_hard": 0.131
+  },
+  "reason": "최선 후보 union_top1: k1 +0.0591 < 기준 +0.0637"
+}

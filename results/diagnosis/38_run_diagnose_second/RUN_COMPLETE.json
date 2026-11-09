@@ -1,0 +1,22 @@
+{
+  "outputs_written": true,
+  "diagnosis_finished": true,
+  "status": "DIAGNOSIS_COMPLETE",
+  "picks_nothing": true,
+  "dev_best_rank_median": 1.0,
+  "dev_best_rank_ratio_median": 1.0,
+  "dev_auc_all": 0.6573,
+  "dev_auc_drop_top1": 0.656,
+  "dev_top5_generators_model": 1.984,
+  "dev_top5_generators_random": 3.083,
+  "side": "selection",
+  "recommendation": "선택 단계 개선 (유사도 기반 규칙). 모델 재학습 불필요.",
+  "finer_axis_candidates": [],
+  "dev_ruleA_failures": 176,
+  "dev_answer_generator_already_used": 1.0,
+  "dev_rescued": {
+    "generator_seed": 26,
+    "generator_sample": 29
+  },
+  "sources_unchanged": true
+}

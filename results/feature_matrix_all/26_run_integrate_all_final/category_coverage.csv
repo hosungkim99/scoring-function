@@ -1,0 +1,9 @@
+category,features,poses_all_features,coverage
+cat1_contact,13,452950,0.984
+cat2_gnina,3,449329,0.9762
+cat2_interaction,5,448865,0.9752
+cat3_surface,7,452250,0.9825
+cat4_geometry,8,448865,0.9752
+cat5_pocket,7,453514,0.9853
+cat67_water_metal,8,0,0.0
+cat8_ligand,12,460300,1.0

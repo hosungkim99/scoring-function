@@ -1,0 +1,7 @@
+pool,n_systems,n_eligible,oracle_ceiling,random_analytic,random_empirical,denominator
+all,4603,3595,0.781,0.711,0.7099,all_systems
+all,4045,3595,0.8888,0.8091,0.8079,labeled_systems
+all,3595,3595,1.0,0.9104,0.909,eligible_systems
+labeled,4603,3595,0.781,0.7132,0.8122,all_systems
+labeled,4045,3595,0.8888,0.8116,0.8122,labeled_systems
+labeled,3595,3595,1.0,0.9132,0.9139,eligible_systems

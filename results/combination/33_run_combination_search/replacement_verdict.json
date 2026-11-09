@@ -1,0 +1,50 @@
+{
+  "rule": {
+    "sigma_k1": 2.0,
+    "sigma_hard": 1.0,
+    "floors": {
+      "k1": 0.002,
+      "hard": 0.01
+    },
+    "pre_registered": true,
+    "source": "개발일지 §10.15"
+  },
+  "incumbent": {
+    "label": "incumbent_top10",
+    "size": 10,
+    "members": "affinity_score_only|cnn_score_score_only|lig_aromatic_rings|lig_bond_count|lig_heavy_atoms|lig_ring_count|ligand_atoms_lt_5A|ligand_buried_sasa_A2|pl_min_distance_A|receptor_clash_pairs",
+    "k1_mean": 0.0478,
+    "k1_std": 0.0027,
+    "hard_mean": 0.1356,
+    "hard_std": 0.0195
+  },
+  "challenger": {
+    "members": "lig_bond_len_min_A|lig_fraction_csp3|ligand_atoms_lt_3A|protein_residues_lt_4A",
+    "size": 4,
+    "alone_k1": 0.0164,
+    "alone_k1_std": 0.0051,
+    "alone_hard": 0.0631,
+    "with_anchor_k1": 0.0563,
+    "with_anchor_k1_std": 0.0037,
+    "with_anchor_hard": 0.1453,
+    "with_anchor_hard_std": 0.0143,
+    "increment_k1": 0.0069,
+    "increment_hard": 0.0165,
+    "rank": 3
+  },
+  "replace": true,
+  "reason": "사전 등록 기준 전부 통과",
+  "new_features": [
+    "affinity_score_only",
+    "cnn_affinity_score_only",
+    "cnn_score_score_only",
+    "lig_bond_len_max_A",
+    "lig_bond_len_min_A",
+    "lig_fraction_csp3",
+    "ligand_atoms_lt_3A",
+    "ligand_sasa_complex_A2",
+    "pl_min_distance_A",
+    "protein_residues_lt_4A",
+    "top_pocket_score"
+  ]
+}

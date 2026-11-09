@@ -1,0 +1,435 @@
+{
+  "version": "freeze_0.1.0",
+  "status": "FREEZE_COMPLETE",
+  "output_dir": "<DATA_ROOT>/Scoring_Function/out/final_model/37_run_freeze_v2",
+  "preregistration": [
+    "이 실행은 레시피를 받아 적을 뿐이며 설계 결정을 새로 하지 않는다.",
+    "굳히는 집합은 anchor_only(7개)이고 36번 결과에 따라 사전에 정해졌다.",
+    "출하 모델은 기준 시드 모델 하나로 미리 지정한다. 성적을 보고 바꾸지 않는다.",
+    "5개 평균(앙상블) 성적도 함께 적지만 선택 후보가 아니라 참고 수치다.",
+    "test 는 저장한 모델이 35번 수치를 재현하는지 확인하는 데만 쓴다."
+  ],
+  "picks_nothing": true,
+  "spec": {
+    "version": "freeze_0.1.0",
+    "name": "co-folding pose 재순위화기 (GT-free Top-k 선별)",
+    "scoring_function": {
+      "stage1_model": {
+        "kind": "xgboost booster (rank:ndcg)",
+        "file": "model.json",
+        "features": [
+          "affinity_score_only",
+          "cnn_affinity_score_only",
+          "cnn_score_score_only",
+          "lig_bond_len_max_A",
+          "ligand_sasa_complex_A2",
+          "pl_min_distance_A",
+          "top_pocket_score"
+        ],
+        "objective": "rank:ndcg",
+        "group": "system_id",
+        "n_estimators": 400,
+        "max_depth": 6,
+        "learning_rate": 0.05,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "tree_method": "hist",
+        "ndcg_exp_gain": false,
+        "lambdarank_pair_method": "topk",
+        "missing": "NaN 그대로 넣습니다. 0 으로 채우면 안 됩니다."
+      },
+      "stage2_rule": {
+        "name": "ruleA",
+        "definition": "점수 내림차순으로 순회하며 생성기가 처음 나오면 먼저 담고, 이미 쓴 생성기는 뒤로 보냅니다. 그 순서에서 앞 k개.",
+        "generator_column": "model",
+        "why": "모델은 1등은 잘 고르지만 2~5등을 고르면 비슷한 포즈끼리 뭉칩니다. 이 규칙이 test k=3/5 이득의 대부분을 법니다.",
+        "tie_break": "pose_id SHA1 오름차순 (생성기와 무관해야 공평합니다)"
+      }
+    },
+    "training_only": {
+      "relevance_bins": {
+        "scheme": "asymmetric",
+        "bins": [
+          [
+            1.0,
+            11
+          ],
+          [
+            2.0,
+            10
+          ],
+          [
+            3.0,
+            2
+          ],
+          [
+            5.0,
+            1
+          ]
+        ],
+        "why": "평가는 2A 이진이므로 성공 경계만 크게 벌리고 1A 과 1.9A 는 거의 구별하지 않습니다."
+      },
+      "label_source": "sc_rmsd",
+      "mask": "label_known",
+      "note": "sc_rmsd 는 학습에만 쓰입니다. 추론에는 정답이 필요 없습니다."
+    },
+    "evaluation": {
+      "metric": "타깃별 Top-k 안에 sc_rmsd < 2A pose 가 1개 이상",
+      "strict_less_than": true,
+      "selection_rule_for_reported_numbers": "ruleA"
+    },
+    "designated_seed": 20261102,
+    "ensemble_is_reference_only": true,
+    "provenance_steps": {
+      "28": "기준선. NaN 유지, 0 채우기 금지 결정",
+      "29": "랭킹 목적함수와 그룹=시스템",
+      "30": "등급 relevance",
+      "31": "2x2 결합과 선택 규칙 A/B",
+      "32": "feature 수 사다리 (5개와 57개가 같음)",
+      "33": "조합 탐색 (1,294개)",
+      "34": "합집합 비교, 7집합",
+      "35": "test 923 평가 (조합 기여 재현 실패 확인)",
+      "36": "부분집합 분포 (7개 위 추가는 무의미)",
+      "37": "이 실행 — 굳히기"
+    }
+  },
+  "provenance": {
+    "version": "freeze_0.1.0",
+    "frozen_at_elapsed_s": 54.4,
+    "final_label": "anchor_only",
+    "features": [
+      "affinity_score_only",
+      "cnn_affinity_score_only",
+      "cnn_score_score_only",
+      "lig_bond_len_max_A",
+      "ligand_sasa_complex_A2",
+      "pl_min_distance_A",
+      "top_pocket_score"
+    ],
+    "matrix": "<DATA_ROOT>/Scoring_Function/out/feature_matrix_all/26_run_integrate_all_final",
+    "sources": [
+      {
+        "path": "<DATA_ROOT>/Scoring_Function/out/feature_matrix_all/26_run_integrate_all_final/unified_all.parquet",
+        "size_bytes": 139129096,
+        "mtime_ns": 1793584248625468948,
+        "sha256": "d2af2d58bf4262e40252ed38cc1da9459d3fe00948550e7d955b6344fb5cc06c"
+      },
+      {
+        "path": "<DATA_ROOT>/Scoring_Function/out/feature_matrix_all/26_run_integrate_all_final/feature_catalog.csv",
+        "size_bytes": 3342,
+        "mtime_ns": 1793584246994221628,
+        "sha256": "edcaf561f35e5f08298a264f92be169cc988aba759d968e66dbc9ba5d8f3ead8"
+      }
+    ],
+    "union_dir": "<DATA_ROOT>/Scoring_Function/out/union/34_run_union_final_full",
+    "test_eval_dir": "<DATA_ROOT>/Scoring_Function/out/test_eval/35_run_test_final",
+    "script_sha256": "f1b32da3f5bb3672c5171012cb140d9a0a9df6925da410f2dd6706af94d22195",
+    "support_sha256": {
+      "35_test_evaluation.py": "88430ebaa67d5129528af049e7287f70bb9bdc730e9f40051f9a347281e75fa1",
+      "34_union_test.py": "2c2410656818a522cd44dfaebf28d6c7e7005b0afb66d5525f69786e7d806350",
+      "33_combination_search.py": "aeca20c0ede7f9f8c69f6032d6075bf65cb09ae21f6b8ace1f62094c44c64e06",
+      "32_feature_selection.py": "9ec5969959b1bf2f915b29700b81afd24efa7f874392bdf321b2ae1a78457730",
+      "31_combined_model.py": "21542ef74573d7c0874e667fe830eb7adb44eadb2e81b396c955bd9e1682d038",
+      "30_graded_model.py": "81b50d070dc3df36ca94e037b1d5420790e0b726a5391597411c17a67411666c",
+      "29_ranking_model.py": "dde7fa2007aad8ad5902b42a06c48471c6c3282b68ac16553d8b7a37d5bc4317",
+      "28_baseline_model.py": "51421b0fc5d8d3507ba03cef737fea583790b6da61aabd1e7d44f217caec39ee",
+      "05_audit_input_roles.py": "62e03701e4f0e468d06dee21154f210ac48cca20284e2f2fa57f6617483cfbb3",
+      "04_audit_selected_structures.py": "0ee83ea4d7969fa57cc5cc0da528d52821b513179e92fabc44143bf56c2f6a70",
+      "03_select_representative_systems.py": "316028bf5436c3a3affd3f8c23b5448b27b9f2c893b5495f42848dd7dc630962"
+    },
+    "python": "<SHARED_ROOT>/.micromamba/envs/<CONDA_ENV>/bin/python",
+    "xgboost": "2.1.4",
+    "trained_on": {
+      "split": "dev",
+      "systems_in_split": 3680,
+      "poses_in_split": 368000,
+      "groups_used": 2482,
+      "poses_used": 243599,
+      "groups_dropped_no_pair": 735,
+      "note": "등급이 전부 같은 시스템은 기울기가 0이라 학습에서 빠집니다(30번 pairable_systems)."
+    },
+    "held_out": {
+      "split": "test",
+      "systems": 923,
+      "eligible": 718,
+      "hard_systems": 61,
+      "never_used_for_selection": true
+    },
+    "models": [
+      {
+        "seed": 20261102,
+        "file": "model_seed20261102.json",
+        "sha256": "9d470fbb5db7a66480199efb002789f3a76358b242567ec14af3eb477e31415b",
+        "bytes": 2838617,
+        "train_groups": 2482,
+        "train_poses": 243599,
+        "dropped_groups": 735,
+        "dev_in_sample_lift_k1": 0.20030239833159447,
+        "test_lift_k1": 0.03405292479108679,
+        "test_lift_k3": 0.030491918215754255,
+        "test_lift_k5": 0.020754679947162846
+      },
+      {
+        "seed": 20261103,
+        "file": "model_seed20261103.json",
+        "sha256": "7eccace66023fbb6375e0347179ebc06bf510d33c5dedb449528025fe90dd0ca",
+        "bytes": 2854265,
+        "train_groups": 2482,
+        "train_poses": 243599,
+        "dropped_groups": 735,
+        "dev_in_sample_lift_k1": 0.19752172401807344,
+        "test_lift_k1": 0.0354456824512539,
+        "test_lift_k3": 0.026313645235252925,
+        "test_lift_k5": 0.015183649306494296
+      },
+      {
+        "seed": 20261104,
+        "file": "model_seed20261104.json",
+        "sha256": "b3fe7ef24573b250fbe33bc716607469aa64ad458a989c3cf9a59dc1fc182ed6",
+        "bytes": 2836004,
+        "train_groups": 2482,
+        "train_poses": 243599,
+        "dropped_groups": 735,
+        "dev_in_sample_lift_k1": 0.19995481404240434,
+        "test_lift_k1": 0.03823119777158812,
+        "test_lift_k3": 0.031884675875921364,
+        "test_lift_k5": 0.023540195267497066
+      },
+      {
+        "seed": 20261105,
+        "file": "model_seed20261105.json",
+        "sha256": "13540cbfaf639a84d3f16704eb7274b4ade827e30dc9cb43257e85f4edc2ba65",
+        "bytes": 2836240,
+        "train_groups": 2482,
+        "train_poses": 243599,
+        "dropped_groups": 735,
+        "dev_in_sample_lift_k1": 0.1982168925964537,
+        "test_lift_k1": 0.0243036211699168,
+        "test_lift_k3": 0.024920887575085815,
+        "test_lift_k5": 0.019361922286995736
+      },
+      {
+        "seed": 20261106,
+        "file": "model_seed20261106.json",
+        "sha256": "fd9152582c365a201308c886e0cf627fbf64d8c1dbbcb28a5f7d416d497f85e0",
+        "bytes": 2843034,
+        "train_groups": 2482,
+        "train_poses": 243599,
+        "dropped_groups": 735,
+        "dev_in_sample_lift_k1": 0.19925964546402408,
+        "test_lift_k1": 0.02987465181058535,
+        "test_lift_k3": 0.010993310973414494,
+        "test_lift_k5": 0.016576406966661406
+      }
+    ],
+    "designated": {
+      "seed": 20261102,
+      "file": "model.json",
+      "sha256": "9d470fbb5db7a66480199efb002789f3a76358b242567ec14af3eb477e31415b",
+      "same_as": "model_seed20261102.json",
+      "sha256_matches_seed_file": true
+    },
+    "performance": {
+      "dev_in_sample|lift|ruleA|k1": {
+        "seed_mean": 0.1991,
+        "seed_std": 0.0012,
+        "designated_seed": 0.20030239833159447,
+        "ensemble_reference_only": 0.19508863399374254,
+        "is_in_sample": true,
+        "not_a_performance_estimate": true,
+        "dev_oof_from_35": 0.0494,
+        "memorization_gap": 0.1497,
+        "note": "dev 전체로 학습한 뒤 그 dev 를 다시 예측한 값입니다. 모델이 이미 본 데이터라 성능이 아니라 암기 정도를 나타냅니다. dev 성능은 dev_oof_from_35 를 보십시오."
+      },
+      "dev_in_sample|hard_lift|ruleA|k1": {
+        "seed_mean": 0.5353,
+        "seed_std": 0.0121,
+        "reference_only": true,
+        "note": "test 어려운 층은 61개뿐이라 판정 근거로 쓰지 않습니다.",
+        "is_in_sample": true,
+        "not_a_performance_estimate": true
+      },
+      "dev_in_sample|lift|ruleA|k3": {
+        "seed_mean": 0.0914,
+        "seed_std": 0.0013,
+        "designated_seed": 0.09039130639458037,
+        "ensemble_reference_only": 0.09282439641891127,
+        "is_in_sample": true,
+        "not_a_performance_estimate": true,
+        "dev_oof_from_35": 0.0315,
+        "memorization_gap": 0.0599,
+        "note": "dev 전체로 학습한 뒤 그 dev 를 다시 예측한 값입니다. 모델이 이미 본 데이터라 성능이 아니라 암기 정도를 나타냅니다. dev 성능은 dev_oof_from_35 를 보십시오."
+      },
+      "dev_in_sample|hard_lift|ruleA|k3": {
+        "seed_mean": 0.5262,
+        "seed_std": 0.0143,
+        "reference_only": true,
+        "note": "test 어려운 층은 61개뿐이라 판정 근거로 쓰지 않습니다.",
+        "is_in_sample": true,
+        "not_a_performance_estimate": true
+      },
+      "dev_in_sample|lift|ruleA|k5": {
+        "seed_mean": 0.0623,
+        "seed_std": 0.001,
+        "designated_seed": 0.06200201148247564,
+        "ensemble_reference_only": 0.06478268579599666,
+        "is_in_sample": true,
+        "not_a_performance_estimate": true,
+        "dev_oof_from_35": 0.0215,
+        "memorization_gap": 0.0408,
+        "note": "dev 전체로 학습한 뒤 그 dev 를 다시 예측한 값입니다. 모델이 이미 본 데이터라 성능이 아니라 암기 정도를 나타냅니다. dev 성능은 dev_oof_from_35 를 보십시오."
+      },
+      "dev_in_sample|hard_lift|ruleA|k5": {
+        "seed_mean": 0.5027,
+        "seed_std": 0.0238,
+        "reference_only": true,
+        "note": "test 어려운 층은 61개뿐이라 판정 근거로 쓰지 않습니다.",
+        "is_in_sample": true,
+        "not_a_performance_estimate": true
+      },
+      "test|lift|ruleA|k1": {
+        "seed_mean": 0.0324,
+        "seed_std": 0.0054,
+        "designated_seed": 0.03405292479108679,
+        "ensemble_reference_only": 0.02708913649025113
+      },
+      "test|hard_lift|ruleA|k1": {
+        "seed_mean": 0.0677,
+        "seed_std": 0.0307,
+        "reference_only": true,
+        "note": "test 어려운 층은 61개뿐이라 판정 근거로 쓰지 않습니다."
+      },
+      "test|lift|ruleA|k3": {
+        "seed_mean": 0.0249,
+        "seed_std": 0.0083,
+        "designated_seed": 0.030491918215754255,
+        "ensemble_reference_only": 0.027706402895420035
+      },
+      "test|hard_lift|ruleA|k3": {
+        "seed_mean": 0.0776,
+        "seed_std": 0.0374,
+        "reference_only": true,
+        "note": "test 어려운 층은 61개뿐이라 판정 근거로 쓰지 않습니다."
+      },
+      "test|lift|ruleA|k5": {
+        "seed_mean": 0.0191,
+        "seed_std": 0.0033,
+        "designated_seed": 0.020754679947162846,
+        "ensemble_reference_only": 0.019361922286995736
+      },
+      "test|hard_lift|ruleA|k5": {
+        "seed_mean": 0.0718,
+        "seed_std": 0.0232,
+        "reference_only": true,
+        "note": "test 어려운 층은 61개뿐이라 판정 근거로 쓰지 않습니다."
+      }
+    },
+    "dev_performance_out_of_fold": {
+      "lift|ruleA|k1": {
+        "mean": 0.0494,
+        "std": 0.004
+      },
+      "lift|ruleA|k3": {
+        "mean": 0.0315,
+        "std": 0.0038
+      },
+      "lift|ruleA|k5": {
+        "mean": 0.0215,
+        "std": 0.0034
+      },
+      "source": "<DATA_ROOT>/Scoring_Function/out/test_eval/35_run_test_final/dev_vs_test.csv",
+      "note": "35번이 18번 폴드로 out-of-fold 측정한 값입니다. 이것이 dev 성능이고, performance 의 dev_in_sample 항목은 암기 수치입니다."
+    },
+    "random_baseline": {
+      "dev": {
+        "1": 0.7406082725060836,
+        "3": 0.8734599275296463,
+        "5": 0.9133195039850253
+      },
+      "test": {
+        "1": 0.7138579387186625,
+        "3": 0.8539091959903738,
+        "5": 0.8984653757631436
+      }
+    }
+  },
+  "selfcheck": {
+    "roundtrip_save_load": {
+      "passed": true,
+      "max_score_gap": 0.0,
+      "tolerance": 1e-05,
+      "what": "저장한 model.json 을 다시 읽어 점수가 같은가"
+    },
+    "reproduce_35": {
+      "passed": true,
+      "tolerance": 0.002,
+      "cells": [
+        {
+          "metric": "lift|ruleA|k1",
+          "reference_35": 0.0324,
+          "here_mean": 0.0324,
+          "here_std": 0.0054,
+          "diff": 0.0,
+          "designated_seed_value": 0.03405292479108679,
+          "within_tolerance": true
+        },
+        {
+          "metric": "lift|ruleA|k3",
+          "reference_35": 0.0249,
+          "here_mean": 0.0249,
+          "here_std": 0.0083,
+          "diff": 0.0,
+          "designated_seed_value": 0.030491918215754255,
+          "within_tolerance": true
+        },
+        {
+          "metric": "lift|ruleA|k5",
+          "reference_35": 0.0191,
+          "here_mean": 0.0191,
+          "here_std": 0.0033,
+          "diff": 0.0,
+          "designated_seed_value": 0.020754679947162846,
+          "within_tolerance": true
+        }
+      ],
+      "what": "다시 읽은 모델의 test 성적이 35번 수치와 같은가"
+    },
+    "feature_order_guard": {
+      "checked": true,
+      "swapped_columns": [
+        "affinity_score_only",
+        "cnn_affinity_score_only"
+      ],
+      "max_score_change": 4.275126,
+      "scores_changed": true,
+      "note": "열 순서를 바꾸면 점수가 달라지고 오류는 나지 않습니다. feature_order.json 을 반드시 지켜야 하는 이유입니다."
+    },
+    "predict_py_matches": {
+      "returncode": 0,
+      "stderr_tail": "모델: ['model.json']\nfeature 7개 | pose 71800행 | 타깃 718개\nTop-5: <DATA_ROOT>/Scoring_Function/out/final_model/37_run_freeze_v2/tmp/verify_top5.csv (3590행)\n",
+      "rows_here": 3590,
+      "rows_predict": 3590,
+      "identical": true,
+      "first_mismatch": null
+    },
+    "all_passed": true
+  },
+  "changed_sources": [],
+  "elapsed_seconds": 56.366521021933295,
+  "how_to_use": [
+    "이 폴더를 그대로 복사해 쓰십시오. 28~36번 스크립트는 필요하지 않습니다.",
+    "python predict.py --poses <poses.parquet> --k 5 --out top5.csv",
+    "poses 파일에 system_id, model, seed, sample, pose_id 와 feature_order.json 의 7개 열이 있어야 합니다.",
+    "model 열은 생성기 이름이며 규칙 A 가 이 열로 다양성을 셉니다.",
+    "결측은 빈 값(NaN)으로 두십시오. 0 으로 채우면 틀린 점수가 납니다."
+  ],
+  "limits": [
+    "provenance 의 dev_in_sample 수치는 학습 데이터 재예측이며 성능이 아닙니다. dev 성능은 dev_performance_out_of_fold(35번 측정)를 인용하십시오. 두 값의 차가 memorization_gap 입니다.",
+    "인용할 대표 수치는 test 의 seed_mean 입니다. designated_seed 값은 출하 모델 1회 실측이라 ±seed_std 만큼의 표본 잡음을 함께 보십시오.",
+    "학습은 dev 3,680 타깃 1회입니다. 새 타깃으로 재학습하지 않습니다.",
+    "test 923 성적이 기대값이며, 다른 분포의 타깃에서는 달라질 수 있습니다.",
+    "feature 7개 중 4개는 gnina·P2Rank 출력입니다. 두 도구가 필요합니다.",
+    "k=3/5 이득의 대부분은 규칙 A 몫이고 모델 몫은 k=1 에 몰려 있습니다.",
+    "앙상블(시드 5개 평균) 수치는 참고용이며 출하 모델이 아닙니다."
+  ]
+}

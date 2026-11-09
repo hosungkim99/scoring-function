@@ -1,0 +1,6 @@
+members,size,lift|plain|k1,lift|plain|k3,lift|plain|k5,lift|ruleA|k1,lift|ruleA|k3,lift|ruleA|k5,lift|ruleB|k1,lift|ruleB|k3,lift|ruleB|k5,hard_lift|ruleA|k1,hard_lift|ruleA|k3,hard_lift|ruleA|k5,objective
+lig_bond_len_min_A|lig_min_nonbonded_dist_A,2,0.0116,-0.0087,-0.0141,0.0116,0.0195,0.013,0.0116,0.0018,0.0043,0.0058,0.0112,0.0168,0.0116
+lig_ring_count|pl_pairs_lt_3A|protein_residues_lt_4A,3,0.0171,-0.0139,-0.0186,0.0171,0.0129,0.0116,0.0171,0.0,0.0008,0.0493,-0.0033,0.0216,0.0171
+lig_bond_count|lig_bond_len_min_A|protein_residues_lt_4A|receptor_clash_pairs,4,0.0255,-0.0042,-0.011,0.0255,0.0205,0.0161,0.0255,0.0056,0.004,0.0831,0.0692,0.0651,0.0255
+lig_bond_len_min_A|lig_fraction_csp3|lig_heavy_atoms|protein_residues_lt_4A|receptor_clash_pairs,5,0.0276,-0.0038,-0.0103,0.0276,0.0226,0.0192,0.0276,0.0073,0.0067,0.1024,0.0788,0.0892,0.0276
+lig_bond_len_min_A|lig_tpsa|ligand_atoms_lt_3A|metal_in_ligand_count|protein_residues_lt_4A|receptor_clash_pairs,6,0.03,-0.0042,-0.0117,0.03,0.0181,0.0137,0.03,0.0098,0.0012,0.0493,0.0353,0.0554,0.03

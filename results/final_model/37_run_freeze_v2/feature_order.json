@@ -1,0 +1,16 @@
+{
+  "features": [
+    "affinity_score_only",
+    "cnn_affinity_score_only",
+    "cnn_score_score_only",
+    "lig_bond_len_max_A",
+    "ligand_sasa_complex_A2",
+    "pl_min_distance_A",
+    "top_pocket_score"
+  ],
+  "n_features": 7,
+  "order_matters": true,
+  "note": "xgboost 는 열 이름을 보지 않고 위치만 봅니다. 이 순서대로 행렬을 만들지 않으면 오류 없이 틀린 점수가 나옵니다.",
+  "source": "<DATA_ROOT>/Scoring_Function/out/union/34_run_union_final_full/union_results.csv",
+  "source_label": "anchor_only"
+}

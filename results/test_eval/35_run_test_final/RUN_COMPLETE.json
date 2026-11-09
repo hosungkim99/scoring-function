@@ -1,0 +1,47 @@
+{
+  "outputs_written": true,
+  "test_eval_finished": true,
+  "status": "TEST_EVAL_COMPLETE",
+  "test_opened": true,
+  "candidates": [
+    "adopted_33",
+    "union_all12"
+  ],
+  "test_k1_lift": {
+    "adopted_33": 0.0268,
+    "union_all12": 0.0226,
+    "anchor_only": 0.0324,
+    "top10_32": 0.0179
+  },
+  "test_k5_lift": {
+    "adopted_33": 0.0182,
+    "union_all12": 0.0227,
+    "anchor_only": 0.0191,
+    "top10_32": 0.0118
+  },
+  "head_to_head_conclusion": "test 에서도 두 집합은 구분되지 않는다",
+  "separating_cells": [],
+  "combination_survived": {
+    "adopted_33": {
+      "anchor_k1": 0.0324,
+      "candidate_k1": 0.0268,
+      "combination_gain_k1": -0.0056,
+      "combined_std": 0.0079,
+      "sigma": -0.71,
+      "anchor_hard": 0.0718,
+      "candidate_hard": 0.0718,
+      "combination_gain_hard": 0.0
+    },
+    "union_all12": {
+      "anchor_k1": 0.0324,
+      "candidate_k1": 0.0226,
+      "combination_gain_k1": -0.0098,
+      "combined_std": 0.0108,
+      "sigma": -0.91,
+      "anchor_hard": 0.0718,
+      "candidate_hard": 0.0915,
+      "combination_gain_hard": 0.0197
+    }
+  },
+  "sources_unchanged": true
+}

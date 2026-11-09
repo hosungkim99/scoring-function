@@ -1,0 +1,61 @@
+{
+  "roundtrip_save_load": {
+    "passed": true,
+    "max_score_gap": 0.0,
+    "tolerance": 1e-05,
+    "what": "저장한 model.json 을 다시 읽어 점수가 같은가"
+  },
+  "reproduce_35": {
+    "passed": true,
+    "tolerance": 0.002,
+    "cells": [
+      {
+        "metric": "lift|ruleA|k1",
+        "reference_35": 0.0324,
+        "here_mean": 0.0324,
+        "here_std": 0.0054,
+        "diff": 0.0,
+        "designated_seed_value": 0.03405292479108679,
+        "within_tolerance": true
+      },
+      {
+        "metric": "lift|ruleA|k3",
+        "reference_35": 0.0249,
+        "here_mean": 0.0249,
+        "here_std": 0.0083,
+        "diff": 0.0,
+        "designated_seed_value": 0.030491918215754255,
+        "within_tolerance": true
+      },
+      {
+        "metric": "lift|ruleA|k5",
+        "reference_35": 0.0191,
+        "here_mean": 0.0191,
+        "here_std": 0.0033,
+        "diff": 0.0,
+        "designated_seed_value": 0.020754679947162846,
+        "within_tolerance": true
+      }
+    ],
+    "what": "다시 읽은 모델의 test 성적이 35번 수치와 같은가"
+  },
+  "feature_order_guard": {
+    "checked": true,
+    "swapped_columns": [
+      "affinity_score_only",
+      "cnn_affinity_score_only"
+    ],
+    "max_score_change": 4.275126,
+    "scores_changed": true,
+    "note": "열 순서를 바꾸면 점수가 달라지고 오류는 나지 않습니다. feature_order.json 을 반드시 지켜야 하는 이유입니다."
+  },
+  "predict_py_matches": {
+    "returncode": 0,
+    "stderr_tail": "모델: ['model.json']\nfeature 7개 | pose 71800행 | 타깃 718개\nTop-5: <DATA_ROOT>/Scoring_Function/out/final_model/37_run_freeze_v2/tmp/verify_top5.csv (3590행)\n",
+    "rows_here": 3590,
+    "rows_predict": 3590,
+    "identical": true,
+    "first_mismatch": null
+  },
+  "all_passed": true
+}

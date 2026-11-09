@@ -1,0 +1,11 @@
+{
+  "outputs_written": true,
+  "baseline_finished": true,
+  "status": "BASELINE_COMPLETE",
+  "model_top5": 0.8999,
+  "random_top5": 0.9133,
+  "lift": -0.0134,
+  "normalized_lift": -0.1549,
+  "features_used": 57,
+  "sources_unchanged": true
+}

@@ -1,0 +1,11 @@
+split,stratum,systems,rand_top5,room_targets
+dev,very_hard,67,0.0693,62.4
+dev,hard,79,0.2006,63.2
+dev,medium,61,0.3777,38.0
+dev,easy,179,0.6932,54.9
+dev,very_easy,2491,0.9876,31.0
+test,very_hard,25,0.0596,23.5
+test,hard,16,0.214,12.6
+test,medium,20,0.3854,12.3
+test,easy,49,0.6811,15.6
+test,very_easy,608,0.9854,8.9

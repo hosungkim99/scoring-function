@@ -1,0 +1,13 @@
+members,size,alone_k1,alone_k1_std,alone_hard,with_anchor_k1,with_anchor_k1_std,with_anchor_hard,with_anchor_hard_std,increment_k1,increment_hard,rank
+lig_bond_len_min_A|lig_fraction_csp3|lig_heavy_atoms|lig_ring_count|ligand_atoms_lt_3A|protein_residues_lt_4A,6,0.0193,0.007,0.0747,0.0591,0.0026,0.1472,0.0141,0.0097,0.0184,1
+lig_bond_len_min_A|lig_fraction_csp3|lig_heavy_atoms|protein_residues_lt_4A|receptor_clash_pairs,5,0.016,0.0081,0.1028,0.0576,0.0041,0.1491,0.0387,0.0082,0.0203,2
+lig_bond_len_min_A|lig_fraction_csp3|ligand_atoms_lt_3A|protein_residues_lt_4A,4,0.0164,0.0051,0.0631,0.0563,0.0037,0.1453,0.0143,0.0069,0.0165,3
+lig_bond_count|lig_bond_len_min_A|protein_residues_lt_4A|receptor_clash_pairs,4,0.0151,0.0053,0.095,0.0558,0.0045,0.1424,0.0221,0.0064,0.0136,4
+lig_hba|lig_ring_count|metal_in_ligand_count|pl_pairs_lt_3A|protein_residues_lt_4A|receptor_clash_pairs,6,0.0191,0.0049,0.0737,0.0554,0.0025,0.1424,0.0194,0.006,0.0136,5
+lig_bond_len_min_A|lig_tpsa|ligand_atoms_lt_3A|metal_in_ligand_count|protein_residues_lt_4A|receptor_clash_pairs,6,0.0209,0.0032,0.0892,0.054,0.0024,0.1317,0.0332,0.0046,0.0029,6
+lig_bond_len_min_A|lig_tpsa|ligand_atoms_lt_3A|metal_observed_count|protein_residues_lt_4A|receptor_clash_pairs,6,0.0209,0.0032,0.0892,0.054,0.0024,0.1317,0.0332,0.0046,0.0029,7
+lig_ring_count|metal_in_ligand_count|pl_pairs_lt_3A|protein_residues_lt_4A,4,0.024,0.0051,0.0486,0.0539,0.0038,0.1511,0.0179,0.0045,0.0223,8
+lig_ring_count|metal_observed_count|pl_pairs_lt_3A|protein_residues_lt_4A,4,0.024,0.0051,0.0486,0.0539,0.0038,0.1511,0.0179,0.0045,0.0223,9
+lig_aromatic_rings|lig_ring_count|pl_pairs_lt_3A|protein_residues_lt_4A,4,0.016,0.0026,0.0419,0.0533,0.005,0.1424,0.0145,0.0039,0.0136,10
+lig_bond_len_min_A|metal_in_ligand_count|protein_residues_lt_4A|receptor_clash_pairs,4,0.0201,0.0013,0.0844,0.0513,0.0039,0.1462,0.0138,0.0019,0.0174,11
+lig_bond_len_min_A|metal_observed_count|protein_residues_lt_4A|receptor_clash_pairs,4,0.0201,0.0013,0.0844,0.0513,0.0039,0.1462,0.0138,0.0019,0.0174,12

@@ -1,0 +1,164 @@
+{
+  "version": "feature_matrix_all_0.1.0",
+  "status": "INTEGRATION_COMPLETE",
+  "output_dir": "<DATA_ROOT>/Scoring_Function/out/feature_matrix_all/26_run_integrate_all_final",
+  "inputs": [
+    {
+      "source": "combined(A6c)",
+      "path": "<DATA_ROOT>/Scoring_Function/out/combined_all/21_run_combined_shard/combined_features_all.parquet",
+      "poses": 460300,
+      "features": 53
+    },
+    {
+      "source": "pocket(P2Rank)",
+      "path": "<DATA_ROOT>/Scoring_Function/out/pocket_all/22_run_pocket_shard/pocket_features_all.parquet",
+      "poses": 460300,
+      "features": 7
+    },
+    {
+      "source": "gnina",
+      "path": "<DATA_ROOT>/Scoring_Function/out/gnina_all/27_run_gnina_shard_full/gnina_features_all.parquet",
+      "poses": 460300,
+      "features": 3
+    }
+  ],
+  "sources": [
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/combined_all/21_run_combined_shard/combined_features_all.parquet",
+      "size_bytes": 61400916,
+      "mtime_ns": 1793244224836090454,
+      "sha256": "29c674331f10f673bee055d9d8478240a0985c2949062ab305d92286847fb091"
+    },
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/pocket_all/22_run_pocket_shard/pocket_features_all.parquet",
+      "size_bytes": 37436920,
+      "mtime_ns": 1793370199512455270,
+      "sha256": "de3bc8a839628406f30cab5542ce016e2e32d331d1474e7fe1126756990f8582"
+    },
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/gnina_all/27_run_gnina_shard_full/gnina_features_all.parquet",
+      "size_bytes": 41447473,
+      "mtime_ns": 1793583820349425347,
+      "sha256": "08425a3df50011c3a6a16f4c8f0673249aee0b2a027206c0f172ddb1a4b27a72"
+    },
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/labels/24_run_build_labels/labels.parquet",
+      "size_bytes": 5615195,
+      "mtime_ns": 1793163600196069553,
+      "sha256": "a352062f762f76d4969a4c08763e9edb33fb75bc603c4e06a0971d0a9f596800"
+    },
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/data_split/18_run_make_split/system_split.csv",
+      "size_bytes": 333739,
+      "mtime_ns": 1792636874426812000,
+      "sha256": "c1b8b865fcef897475544337bd415e230ba6d8351336a4eca0027d735db160b7"
+    }
+  ],
+  "script_sha256": "54ab5f70a069f099e9c28fc9047f404a20633523af1d0d6431c7d858db1b4cb8",
+  "support_sha256": {
+    "05_audit_input_roles.py": "62e03701e4f0e468d06dee21154f210ac48cca20284e2f2fa57f6617483cfbb3",
+    "04_audit_selected_structures.py": "0ee83ea4d7969fa57cc5cc0da528d52821b513179e92fabc44143bf56c2f6a70",
+    "03_select_representative_systems.py": "316028bf5436c3a3affd3f8c23b5448b27b9f2c893b5495f42848dd7dc630962"
+  },
+  "python": "<SHARED_ROOT>/.micromamba/envs/<CONDA_ENV>/bin/python",
+  "pyarrow_version": "24.0.0",
+  "poses": 460300,
+  "systems": 4603,
+  "feature_count": 63,
+  "categories_attached": {
+    "cat5_pocket": true,
+    "gnina": true
+  },
+  "all_feature_sources_present": true,
+  "key_mismatch": {
+    "pocket": {
+      "missing_in_source": 0,
+      "extra_in_source": 0
+    },
+    "gnina": {
+      "missing_in_source": 0,
+      "extra_in_source": 0
+    },
+    "labels": {
+      "missing_in_source": 0,
+      "extra_in_source": 0
+    }
+  },
+  "key_sets_match": true,
+  "uncatalogued_columns": [],
+  "category_coverage": [
+    {
+      "category": "cat1_contact",
+      "features": 13,
+      "poses_all_features": 452950,
+      "coverage": 0.984
+    },
+    {
+      "category": "cat2_gnina",
+      "features": 3,
+      "poses_all_features": 449329,
+      "coverage": 0.9762
+    },
+    {
+      "category": "cat2_interaction",
+      "features": 5,
+      "poses_all_features": 448865,
+      "coverage": 0.9752
+    },
+    {
+      "category": "cat3_surface",
+      "features": 7,
+      "poses_all_features": 452250,
+      "coverage": 0.9825
+    },
+    {
+      "category": "cat4_geometry",
+      "features": 8,
+      "poses_all_features": 448865,
+      "coverage": 0.9752
+    },
+    {
+      "category": "cat5_pocket",
+      "features": 7,
+      "poses_all_features": 453514,
+      "coverage": 0.9853
+    },
+    {
+      "category": "cat67_water_metal",
+      "features": 8,
+      "poses_all_features": 0,
+      "coverage": 0.0
+    },
+    {
+      "category": "cat8_ligand",
+      "features": 12,
+      "poses_all_features": 460300,
+      "coverage": 1.0
+    }
+  ],
+  "labels": {
+    "poses_label_known": 396986,
+    "poses_label_missing": 63314,
+    "poses_near_native": 264328,
+    "systems": 4603,
+    "eligible_systems": 3595,
+    "oracle_rate": 0.781
+  },
+  "split_attached": true,
+  "split_systems": {
+    "dev": 3680,
+    "test": 923
+  },
+  "changed_sources": [],
+  "elapsed_seconds": 8.137295686989091,
+  "policy": [
+    "feature를 0으로 채우지 않고 널을 보존합니다.",
+    "feature 열 이름을 바꾸지 않으며 후보군 분류는 feature_catalog.csv로 제공합니다.",
+    "각 추출원의 status·사유 열을 접두사와 함께 남겨 널의 원인을 추적할 수 있게 합니다.",
+    "A6c 결과를 기준 pose 집합으로 삼고 나머지는 left join 후 키 집합 일치를 검사합니다."
+  ],
+  "notes": [
+    "cat5(P2Rank) 또는 gnina 결과가 없으면 해당 열 없이 생성되며, 나중에 --tag를 바꿔 다시 통합하면 됩니다.",
+    "all_feature_sources_present=False면 아직 일부 추출원이 빠진 중간 산출물입니다."
+  ]
+}

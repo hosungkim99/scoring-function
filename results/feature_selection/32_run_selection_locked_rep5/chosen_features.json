@@ -1,0 +1,61 @@
+{
+  "rule": {
+    "candidates": "전체 + 사다리 (drop_* 제외)",
+    "condition_1": "model/ruleA/k5 lift >= 최고 - tol_k5",
+    "condition_2": "어려운층 k5 lift >= 최고 - tol_hard",
+    "tie_break": "feature 수 최소, 같으면 lift 높은 쪽",
+    "tol_k5": 0.002,
+    "tol_hard": 0.01,
+    "tol_source": "기준 설정(전체)의 시드 간 표준편차, 하한 적용",
+    "floors": {
+      "k5": 0.002,
+      "hard": 0.01
+    },
+    "repeats": 5,
+    "pre_registered": true
+  },
+  "config": "top10",
+  "n_features": 10,
+  "best_lift": 0.024,
+  "best_hard_lift": 0.1482,
+  "chosen_lift": 0.024,
+  "chosen_hard_lift": 0.1453,
+  "features": [
+    "cnn_score_score_only",
+    "affinity_score_only",
+    "receptor_clash_pairs",
+    "ligand_buried_sasa_A2",
+    "lig_ring_count",
+    "pl_min_distance_A",
+    "lig_bond_count",
+    "ligand_atoms_lt_5A",
+    "lig_aromatic_rings",
+    "lig_heavy_atoms"
+  ],
+  "by_category": {
+    "cat1_contact": [
+      "pl_min_distance_A",
+      "ligand_atoms_lt_5A"
+    ],
+    "cat2_gnina": [
+      "cnn_score_score_only",
+      "affinity_score_only"
+    ],
+    "cat2_interaction": [
+      "receptor_clash_pairs"
+    ],
+    "cat3_surface": [
+      "ligand_buried_sasa_A2"
+    ],
+    "cat4_geometry": [
+      "lig_bond_count"
+    ],
+    "cat5_pocket": [],
+    "cat67_water_metal": [],
+    "cat8_ligand": [
+      "lig_ring_count",
+      "lig_aromatic_rings",
+      "lig_heavy_atoms"
+    ]
+  }
+}

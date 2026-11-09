@@ -1,0 +1,3 @@
+label,size,members,k1_mean,k1_std,hard_mean,hard_std
+anchor,7,affinity_score_only|cnn_affinity_score_only|cnn_score_score_only|lig_bond_len_max_A|ligand_sasa_complex_A2|pl_min_distance_A|top_pocket_score,0.0494,0.004,0.1288,0.025
+incumbent_top10,10,affinity_score_only|cnn_score_score_only|lig_aromatic_rings|lig_bond_count|lig_heavy_atoms|lig_ring_count|ligand_atoms_lt_5A|ligand_buried_sasa_A2|pl_min_distance_A|receptor_clash_pairs,0.0478,0.0027,0.1356,0.0195

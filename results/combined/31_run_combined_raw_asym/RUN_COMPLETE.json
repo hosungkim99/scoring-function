@@ -1,0 +1,20 @@
+{
+  "outputs_written": true,
+  "combined_finished": true,
+  "status": "COMBINED_COMPLETE",
+  "features": "raw",
+  "relevance_bins": "asymmetric",
+  "best_model_cell": {
+    "scorer": "model",
+    "rule": "plain",
+    "topk": 1,
+    "systems": 2877,
+    "success": 0.789,
+    "rand_analytic": 0.7406,
+    "lift_vs_analytic": 0.0484,
+    "net_targets": 139.3
+  },
+  "eligible_systems": 2877,
+  "features_used": 57,
+  "sources_unchanged": true
+}

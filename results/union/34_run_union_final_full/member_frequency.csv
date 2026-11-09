@@ -1,0 +1,15 @@
+feature,appears_in,of_total,share
+protein_residues_lt_4A,12,12,1.0
+lig_bond_len_min_A,8,12,0.667
+receptor_clash_pairs,7,12,0.583
+lig_ring_count,5,12,0.417
+ligand_atoms_lt_3A,4,12,0.333
+metal_in_ligand_count,4,12,0.333
+pl_pairs_lt_3A,4,12,0.333
+lig_fraction_csp3,3,12,0.25
+metal_observed_count,3,12,0.25
+lig_heavy_atoms,2,12,0.167
+lig_tpsa,2,12,0.167
+lig_bond_count,1,12,0.083
+lig_hba,1,12,0.083
+lig_aromatic_rings,1,12,0.083

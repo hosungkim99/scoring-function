@@ -1,0 +1,14 @@
+{
+  "outputs_written": true,
+  "ranking_finished": true,
+  "status": "RANKING_COMPLETE",
+  "objective": "rank",
+  "normalize": "zscore",
+  "model_top5": 0.9062,
+  "random_top5": 0.9133,
+  "lift": -0.0072,
+  "net_targets": -20.6,
+  "oof_per_system_auc": 0.688,
+  "features_used": 57,
+  "sources_unchanged": true
+}

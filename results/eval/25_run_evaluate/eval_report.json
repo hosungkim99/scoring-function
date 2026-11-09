@@ -1,0 +1,235 @@
+{
+  "version": "eval_0.1.0",
+  "status": "EVAL_COMPLETE",
+  "output_dir": "<DATA_ROOT>/Scoring_Function/out/eval/25_run_evaluate",
+  "labels": "<DATA_ROOT>/Scoring_Function/out/labels/24_run_build_labels/labels.parquet",
+  "scores": null,
+  "score_col": null,
+  "direction": null,
+  "split_csv": "<DATA_ROOT>/Scoring_Function/out/data_split/18_run_make_split/system_split.csv",
+  "sources": [
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/labels/24_run_build_labels/labels.parquet",
+      "size_bytes": 5615195,
+      "mtime_ns": 1793163600196069553,
+      "sha256": "a352062f762f76d4969a4c08763e9edb33fb75bc603c4e06a0971d0a9f596800"
+    },
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/data_split/18_run_make_split/system_split.csv",
+      "size_bytes": 333739,
+      "mtime_ns": 1792636874426812000,
+      "sha256": "c1b8b865fcef897475544337bd415e230ba6d8351336a4eca0027d735db160b7"
+    }
+  ],
+  "script_sha256": "5d5f1973e191a0f875d37e01cff7b0f5e1686d1897a19eee80908b35b29fe41f",
+  "support_sha256": {
+    "05_audit_input_roles.py": "62e03701e4f0e468d06dee21154f210ac48cca20284e2f2fa57f6617483cfbb3",
+    "04_audit_selected_structures.py": "0ee83ea4d7969fa57cc5cc0da528d52821b513179e92fabc44143bf56c2f6a70",
+    "03_select_representative_systems.py": "316028bf5436c3a3affd3f8c23b5448b27b9f2c893b5495f42848dd7dc630962"
+  },
+  "python": "<SHARED_ROOT>/.micromamba/envs/<CONDA_ENV>/bin/python",
+  "threshold_sc_rmsd": 2.0,
+  "top_k": 5,
+  "random_trials": 20,
+  "seed": 20261028,
+  "tie_break": "pose_id SHA1 오름차순",
+  "systems": 4603,
+  "category_counts": {
+    "eligible": 3595,
+    "fully_unlabeled": 558,
+    "labeled_no_nn": 450
+  },
+  "score_coverage": null,
+  "overall_metrics": [
+    {
+      "pool": "all",
+      "n_systems": 4603,
+      "n_eligible": 3595,
+      "oracle_ceiling": 0.781,
+      "random_analytic": 0.711,
+      "random_empirical": 0.7099,
+      "denominator": "all_systems"
+    },
+    {
+      "pool": "all",
+      "n_systems": 4045,
+      "n_eligible": 3595,
+      "oracle_ceiling": 0.8888,
+      "random_analytic": 0.8091,
+      "random_empirical": 0.8079,
+      "denominator": "labeled_systems"
+    },
+    {
+      "pool": "all",
+      "n_systems": 3595,
+      "n_eligible": 3595,
+      "oracle_ceiling": 1.0,
+      "random_analytic": 0.9104,
+      "random_empirical": 0.909,
+      "denominator": "eligible_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 4603,
+      "n_eligible": 3595,
+      "oracle_ceiling": 0.781,
+      "random_analytic": 0.7132,
+      "random_empirical": 0.8122,
+      "denominator": "all_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 4045,
+      "n_eligible": 3595,
+      "oracle_ceiling": 0.8888,
+      "random_analytic": 0.8116,
+      "random_empirical": 0.8122,
+      "denominator": "labeled_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 3595,
+      "n_eligible": 3595,
+      "oracle_ceiling": 1.0,
+      "random_analytic": 0.9132,
+      "random_empirical": 0.9139,
+      "denominator": "eligible_systems"
+    }
+  ],
+  "split_metrics": [
+    {
+      "pool": "all",
+      "n_systems": 3680,
+      "n_eligible": 2877,
+      "oracle_ceiling": 0.7818,
+      "random_analytic": 0.714,
+      "random_empirical": 0.7128,
+      "split": "dev",
+      "denominator": "all_systems"
+    },
+    {
+      "pool": "all",
+      "n_systems": 3217,
+      "n_eligible": 2877,
+      "oracle_ceiling": 0.8943,
+      "random_analytic": 0.8168,
+      "random_empirical": 0.8153,
+      "split": "dev",
+      "denominator": "labeled_systems"
+    },
+    {
+      "pool": "all",
+      "n_systems": 2877,
+      "n_eligible": 2877,
+      "oracle_ceiling": 1.0,
+      "random_analytic": 0.9133,
+      "random_empirical": 0.9117,
+      "split": "dev",
+      "denominator": "eligible_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 3680,
+      "n_eligible": 2877,
+      "oracle_ceiling": 0.7818,
+      "random_analytic": 0.7163,
+      "random_empirical": 0.8197,
+      "split": "dev",
+      "denominator": "all_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 3217,
+      "n_eligible": 2877,
+      "oracle_ceiling": 0.8943,
+      "random_analytic": 0.8194,
+      "random_empirical": 0.8197,
+      "split": "dev",
+      "denominator": "labeled_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 2877,
+      "n_eligible": 2877,
+      "oracle_ceiling": 1.0,
+      "random_analytic": 0.9163,
+      "random_empirical": 0.9166,
+      "split": "dev",
+      "denominator": "eligible_systems"
+    },
+    {
+      "pool": "all",
+      "n_systems": 923,
+      "n_eligible": 718,
+      "oracle_ceiling": 0.7779,
+      "random_analytic": 0.6989,
+      "random_empirical": 0.6986,
+      "split": "test",
+      "denominator": "all_systems"
+    },
+    {
+      "pool": "all",
+      "n_systems": 828,
+      "n_eligible": 718,
+      "oracle_ceiling": 0.8671,
+      "random_analytic": 0.7791,
+      "random_empirical": 0.7788,
+      "split": "test",
+      "denominator": "labeled_systems"
+    },
+    {
+      "pool": "all",
+      "n_systems": 718,
+      "n_eligible": 718,
+      "oracle_ceiling": 1.0,
+      "random_analytic": 0.8985,
+      "random_empirical": 0.8981,
+      "split": "test",
+      "denominator": "eligible_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 923,
+      "n_eligible": 718,
+      "oracle_ceiling": 0.7779,
+      "random_analytic": 0.7008,
+      "random_empirical": 0.7832,
+      "split": "test",
+      "denominator": "all_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 828,
+      "n_eligible": 718,
+      "oracle_ceiling": 0.8671,
+      "random_analytic": 0.7812,
+      "random_empirical": 0.7832,
+      "split": "test",
+      "denominator": "labeled_systems"
+    },
+    {
+      "pool": "labeled",
+      "n_systems": 718,
+      "n_eligible": 718,
+      "oracle_ceiling": 1.0,
+      "random_analytic": 0.9008,
+      "random_empirical": 0.9031,
+      "split": "test",
+      "denominator": "eligible_systems"
+    }
+  ],
+  "changed_sources": [],
+  "elapsed_seconds": 2.578809402999468,
+  "gt_role": "sc_rmsd 라벨로만 채점하며 feature·pose 선택에 사용하지 않음",
+  "policy": [
+    "성공=타깃별 Top-K에 sc_rmsd<threshold pose 하나 이상(엄격 <).",
+    "두 풀(all=결측 비near-native 보수적, labeled=라벨 pose만)을 모두 보고.",
+    "fully_unlabeled(난이도 불명)와 labeled_no_nn을 eligible과 분리.",
+    "oracle 상한과 random(해석식+경험식)을 같은 후보집합·분모에서 비교.",
+    "test split은 모델·feature 선택에 사용하지 않으며 표시만 합니다."
+  ],
+  "notes": [
+    "스코어링 미주입 시 baseline만 산출합니다(labeled/eligible random은 24 값 재현 자체검증).",
+    "경험적 random은 해석식 검증용이며 random_trials=0이면 생략합니다."
+  ]
+}

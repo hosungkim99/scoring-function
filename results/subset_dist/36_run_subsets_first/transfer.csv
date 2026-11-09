@@ -1,0 +1,10 @@
+scope,metric,n,spearman,dev_best_label,dev_best_dev,dev_best_test,test_best_label,test_best_dev,test_best_test,dev_winner_also_test_winner
+random_only,lift|ruleA|k1,28,0.624,anchored21_2,0.0571,0.0361,uniform21_4,0.0437,0.0368,False
+random_only,lift|ruleA|k3,28,0.039,anchored15_3,0.0355,0.0221,uniform21_4,0.0296,0.0368,False
+random_only,lift|ruleA|k5,28,-0.157,uniform15_3,0.0252,0.0208,uniform21_2,0.0159,0.0284,False
+all,lift|ruleA|k1,35,0.488,union_top1,0.059,0.0226,uniform21_4,0.0437,0.0368,False
+all,lift|ruleA|k3,35,-0.068,union_top5,0.0356,0.0191,uniform21_4,0.0296,0.0368,False
+all,lift|ruleA|k5,35,-0.031,union_all12,0.0261,0.0227,uniform21_2,0.0159,0.0284,False
+measured_here,lift|ruleA|k1,31,0.522,union_top1,0.059,0.0226,uniform21_4,0.0437,0.0368,False
+measured_here,lift|ruleA|k3,31,-0.036,union_top5,0.0356,0.0191,uniform21_4,0.0296,0.0368,False
+measured_here,lift|ruleA|k5,31,-0.086,uniform15_3,0.0252,0.0208,uniform21_2,0.0159,0.0284,False

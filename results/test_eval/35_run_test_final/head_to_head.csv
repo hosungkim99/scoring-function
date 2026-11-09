@@ -1,0 +1,13 @@
+split,metric,hard_layer,adopted_33|mean,adopted_33|std,union_all12|mean,union_all12|std,diff_b_minus_a,combined_std,sigma,verdict,higher
+dev,lift|ruleA|k1,False,0.0563,0.0037,0.0533,0.006,-0.003,0.007,-0.43,구분 안 됨,adopted_33
+dev,lift|ruleA|k3,False,0.0349,0.0019,0.0353,0.0012,0.0004,0.0022,0.18,구분 안 됨,union_all12
+dev,lift|ruleA|k5,False,0.0238,0.0022,0.0261,0.0032,0.0023,0.0039,0.59,구분 안 됨,union_all12
+dev,hard_lift|ruleA|k1,True,0.1295,0.0143,0.1362,0.0229,0.0067,0.027,0.25,구분 안 됨,union_all12
+dev,hard_lift|ruleA|k3,True,0.1513,0.0132,0.1687,0.0131,0.0174,0.0186,0.94,구분 안 됨,union_all12
+dev,hard_lift|ruleA|k5,True,0.1453,0.0143,0.1675,0.0142,0.0222,0.0202,1.1,구분 안 됨,union_all12
+test,lift|ruleA|k1,False,0.0268,0.0058,0.0226,0.0093,-0.0042,0.011,-0.38,구분 안 됨,adopted_33
+test,lift|ruleA|k3,False,0.0241,0.0062,0.0227,0.0045,-0.0014,0.0077,-0.18,구분 안 됨,adopted_33
+test,lift|ruleA|k5,False,0.0182,0.0046,0.0227,0.0041,0.0045,0.0062,0.73,구분 안 됨,union_all12
+test,hard_lift|ruleA|k1,True,0.0644,0.018,0.0611,0.022,-0.0033,0.0284,-0.12,구분 안 됨,adopted_33
+test,hard_lift|ruleA|k3,True,0.0973,0.0478,0.0874,0.0249,-0.0099,0.0539,-0.18,구분 안 됨,adopted_33
+test,hard_lift|ruleA|k5,True,0.0718,0.0556,0.0915,0.0269,0.0197,0.0618,0.32,구분 안 됨,union_all12

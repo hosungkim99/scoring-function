@@ -1,0 +1,14 @@
+{
+  "outputs_written": true,
+  "graded_finished": true,
+  "status": "GRADED_COMPLETE",
+  "relevance": "graded",
+  "pairable_recovered": 739,
+  "model_top5": 0.9058,
+  "random_top5": 0.9133,
+  "lift": -0.0075,
+  "net_targets": -21.6,
+  "mean_ndcg_at_5": 0.7947,
+  "features_used": 57,
+  "sources_unchanged": true
+}

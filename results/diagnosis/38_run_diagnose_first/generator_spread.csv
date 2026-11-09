@@ -1,0 +1,9 @@
+split,distinct_generators,systems,share
+dev,1,828,0.2878
+dev,2,1324,0.4602
+dev,3,667,0.2318
+dev,4,58,0.0202
+test,1,192,0.2674
+test,2,351,0.4889
+test,3,154,0.2145
+test,4,21,0.0292

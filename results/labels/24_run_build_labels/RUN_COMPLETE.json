@@ -1,0 +1,11 @@
+{
+  "outputs_written": true,
+  "labels_finished": true,
+  "status": "LABELS_COMPLETE",
+  "label_rows": 460300,
+  "poses_label_known": 396986,
+  "poses_near_native": 264328,
+  "oracle_systems": 3595,
+  "coverage_ok": true,
+  "sources_unchanged": true
+}

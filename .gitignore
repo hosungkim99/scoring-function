@@ -1,0 +1,28 @@
+# 데이터 · 대용량 (공개하지 않음)
+*.parquet
+*.cif
+*.mmcif
+*.pdb
+*.sdf
+*.mol2
+*.pdbqt
+*.sif
+*.tar.gz
+*.zip
+
+# 서버 실행 산출물 원본 (요약본만 results/ 에 둔다)
+out/
+logs/
+_incoming/
+cache/
+tmp/
+envs/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS · 동기화 폴더
+.DS_Store
+Thumbs.db
+desktop.ini

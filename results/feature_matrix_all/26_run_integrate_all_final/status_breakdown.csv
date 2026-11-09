@@ -1,0 +1,16 @@
+column,value,count
+combined_status,computed,452250
+combined_status,skipped,7350
+combined_status,error,700
+ligand_mapping_status,clean_single_symmetric_mapping,353842
+ligand_mapping_status,clean_single_full_mapping,95523
+ligand_mapping_status,(null),7350
+ligand_mapping_status,connectivity_mismatch,1710
+ligand_mapping_status,atom_count_mismatch,1700
+ligand_mapping_status,degenerate_inferred_connectivity,175
+pocket_status,computed,453514
+pocket_status,no_pockets_predicted,6786
+gnina_status,computed,449329
+gnina_status,skipped,10971
+eval_status,ok,460300
+eval_mapping_status,ok,460300

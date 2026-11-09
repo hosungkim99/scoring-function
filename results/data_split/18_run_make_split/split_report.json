@@ -1,0 +1,66 @@
+{
+  "version": "data_split_0.1.0",
+  "status": "SPLIT_COMPLETE",
+  "output_dir": "<DATA_ROOT>/Scoring_Function/out/data_split/18_run_make_split",
+  "summary_csv": "<SHARED_ROOT>/distillation/data/common_4603_summary.csv",
+  "selection_run": "<DATA_ROOT>/Scoring_Function/out/representative_systems/03_run_select_representative_systems",
+  "sources": [
+    {
+      "path": "<SHARED_ROOT>/distillation/data/common_4603_summary.csv",
+      "size_bytes": 908652,
+      "mtime_ns": 1785292054976002403,
+      "sha256": "81ccc9fd04f3bc0c830ad0b2e93fba7341327b13a9dca641dc15108331de48d4"
+    },
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/representative_systems/03_run_select_representative_systems/selected_systems.csv",
+      "size_bytes": 21907,
+      "mtime_ns": 1792461881213789000,
+      "sha256": "7960bba189fcdf31793ad33b070f2c3a071b295049958fd45938f5bc883630de"
+    }
+  ],
+  "script_sha256": "cee0aec8e122f2a41e8ab2572fa4be19970be2fa14db8c6aa02c268431d534ef",
+  "support_sha256": {
+    "05_audit_input_roles.py": "62e03701e4f0e468d06dee21154f210ac48cca20284e2f2fa57f6617483cfbb3",
+    "04_audit_selected_structures.py": "0ee83ea4d7969fa57cc5cc0da528d52821b513179e92fabc44143bf56c2f6a70",
+    "03_select_representative_systems.py": "316028bf5436c3a3affd3f8c23b5448b27b9f2c893b5495f42848dd7dc630962"
+  },
+  "python": "<SHARED_ROOT>/.micromamba/envs/<CONDA_ENV>/bin/python",
+  "group_key": "pocket_lddt__50__strong__component",
+  "seed": 20261022,
+  "test_frac_target": 0.2,
+  "folds": 5,
+  "total_systems": 4603,
+  "total_clusters": 1437,
+  "dev_systems": 3680,
+  "test_systems": 923,
+  "test_frac_actual": 0.2005,
+  "diagnostic_systems": 40,
+  "diagnostic_clusters_forced_dev": 35,
+  "fold_sizes": [
+    901,
+    695,
+    695,
+    695,
+    694
+  ],
+  "leakage_audit": {
+    "pocket_cluster_cross_split": 0,
+    "ligand_ccd_shared_dev_test": 118,
+    "ecod_shared_dev_test": 105,
+    "note": "포켓 cluster는 구성상 교차 0. 리간드 CCD·ECOD 공유는 보고값이며 강제 분리는 하지 않았습니다."
+  },
+  "changed_sources": [],
+  "elapsed_seconds": 0.2868249313905835,
+  "gt_used": false,
+  "features_used": false,
+  "policy": [
+    "분할은 라벨·feature를 보기 전에 고정했습니다.",
+    "같은 시스템의 100 pose는 시스템이 cluster에 속하므로 한 분할에 들어갑니다.",
+    "진단용 40 시스템의 cluster는 dev로 고정했습니다.",
+    "최종 테스트는 feature·모델 선택에 사용하지 않습니다."
+  ],
+  "limitations": [
+    "포켓 유사성 1차 그룹입니다. 리간드·서열 유사성 누수는 감사값으로만 보고하며 추후 더 엄격히 할 수 있습니다.",
+    "CATH는 결측이 많아 사용하지 않았고 ECOD는 보조 점검에만 썼습니다."
+  ]
+}

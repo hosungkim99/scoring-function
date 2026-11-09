@@ -1,0 +1,35 @@
+{
+  "outputs_written": true,
+  "subset_dist_finished": true,
+  "status": "SUBSET_DIST_COMPLETE",
+  "picks_nothing": true,
+  "subsets_measured": 31,
+  "rows_total": 35,
+  "headline": [
+    {
+      "metric": "lift|ruleA|k1",
+      "n": 28,
+      "range": 0.0515,
+      "between_std": 0.0127,
+      "selection_inflation": 0.0132,
+      "verdict": "집합 간 차이가 잡음보다 큼 (p=0.0000)"
+    },
+    {
+      "metric": "lift|ruleA|k3",
+      "n": 28,
+      "range": 0.0307,
+      "between_std": 0.0037,
+      "selection_inflation": 0.0122,
+      "verdict": "집합 선택의 영향이 잡음에 묻힘 (p=0.109)"
+    },
+    {
+      "metric": "lift|ruleA|k5",
+      "n": 28,
+      "range": 0.0202,
+      "between_std": 0.0034,
+      "selection_inflation": 0.009,
+      "verdict": "집합 간 차이가 잡음보다 큼 (p=0.0427)"
+    }
+  ],
+  "sources_unchanged": true
+}

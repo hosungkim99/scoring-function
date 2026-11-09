@@ -1,0 +1,7 @@
+feature,category,reason
+metal_in_receptor_count,cat67_water_metal,constant
+metal_independent_count,cat67_water_metal,constant
+metal_ligand_receptor_bridge,cat67_water_metal,not_numeric
+min_metal_ligand_distance_A,cat67_water_metal,constant
+water_bridge_count,cat67_water_metal,not_numeric
+water_observed_count,cat67_water_metal,constant

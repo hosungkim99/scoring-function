@@ -1,0 +1,18 @@
+{
+  "outputs_written": true,
+  "freeze_finished": true,
+  "status": "FREEZE_COMPLETE",
+  "picks_nothing": true,
+  "final_label": "anchor_only",
+  "n_features": 7,
+  "designated_seed": 20261102,
+  "model_file": "model.json",
+  "model_sha256": "9d470fbb5db7a66480199efb002789f3a76358b242567ec14af3eb477e31415b",
+  "selfcheck_all_passed": true,
+  "test_lift": {
+    "k1": 0.0324,
+    "k3": 0.0249,
+    "k5": 0.0191
+  },
+  "sources_unchanged": true
+}

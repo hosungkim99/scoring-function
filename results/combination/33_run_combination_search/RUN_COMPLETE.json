@@ -1,0 +1,22 @@
+{
+  "outputs_written": true,
+  "combination_finished": true,
+  "status": "COMBINATION_COMPLETE",
+  "evaluated": 1294,
+  "irreducible": 12,
+  "replace": true,
+  "new_features": [
+    "affinity_score_only",
+    "cnn_affinity_score_only",
+    "cnn_score_score_only",
+    "lig_bond_len_max_A",
+    "lig_bond_len_min_A",
+    "lig_fraction_csp3",
+    "ligand_atoms_lt_3A",
+    "ligand_sasa_complex_A2",
+    "pl_min_distance_A",
+    "protein_residues_lt_4A",
+    "top_pocket_score"
+  ],
+  "sources_unchanged": true
+}

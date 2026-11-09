@@ -1,0 +1,293 @@
+{
+  "version": "ranking_0.1.0",
+  "status": "RANKING_COMPLETE",
+  "output_dir": "<DATA_ROOT>/Scoring_Function/out/ranking/29_run_ranking_rank_raw",
+  "matrix": "<DATA_ROOT>/Scoring_Function/out/feature_matrix_all/26_run_integrate_all_final",
+  "sources": [
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/feature_matrix_all/26_run_integrate_all_final/unified_all.parquet",
+      "size_bytes": 139129096,
+      "mtime_ns": 1793584248625468948,
+      "sha256": "d2af2d58bf4262e40252ed38cc1da9459d3fe00948550e7d955b6344fb5cc06c"
+    },
+    {
+      "path": "<DATA_ROOT>/Scoring_Function/out/feature_matrix_all/26_run_integrate_all_final/feature_catalog.csv",
+      "size_bytes": 3342,
+      "mtime_ns": 1793584246994221628,
+      "sha256": "edcaf561f35e5f08298a264f92be169cc988aba759d968e66dbc9ba5d8f3ead8"
+    }
+  ],
+  "script_sha256": "dde7fa2007aad8ad5902b42a06c48471c6c3282b68ac16553d8b7a37d5bc4317",
+  "support_sha256": {
+    "28_baseline_model.py": "51421b0fc5d8d3507ba03cef737fea583790b6da61aabd1e7d44f217caec39ee",
+    "05_audit_input_roles.py": "62e03701e4f0e468d06dee21154f210ac48cca20284e2f2fa57f6617483cfbb3",
+    "04_audit_selected_structures.py": "0ee83ea4d7969fa57cc5cc0da528d52821b513179e92fabc44143bf56c2f6a70",
+    "03_select_representative_systems.py": "316028bf5436c3a3affd3f8c23b5448b27b9f2c893b5495f42848dd7dc630962"
+  },
+  "python": "<SHARED_ROOT>/.micromamba/envs/<CONDA_ENV>/bin/python",
+  "model_backend": "xgboost_ranker_topk",
+  "objective": "rank",
+  "normalize": "none",
+  "model_params": {
+    "n_estimators": 400,
+    "max_depth": 6,
+    "learning_rate": 0.05,
+    "seed": 20261102
+  },
+  "excluded_categories": [],
+  "features_used": 57,
+  "features_dropped": 6,
+  "feature_list": [
+    "ligand_atoms_lt_3A",
+    "ligand_atoms_lt_4A",
+    "ligand_atoms_lt_5A",
+    "pl_min_distance_A",
+    "pl_pairs_lt_3A",
+    "pl_pairs_lt_4A",
+    "pl_pairs_lt_5A",
+    "protein_atoms_lt_3A",
+    "protein_atoms_lt_4A",
+    "protein_atoms_lt_5A",
+    "protein_residues_lt_3A",
+    "protein_residues_lt_4A",
+    "protein_residues_lt_5A",
+    "affinity_score_only",
+    "cnn_affinity_score_only",
+    "cnn_score_score_only",
+    "aromatic_contact_pairs",
+    "hydrophobic_pairs",
+    "potential_hbond_pairs",
+    "receptor_clash_pairs",
+    "salt_bridge_pairs",
+    "ligand_buried_fraction",
+    "ligand_buried_polar_A2",
+    "ligand_buried_sasa_A2",
+    "ligand_sasa_complex_A2",
+    "ligand_sasa_isolated_A2",
+    "ligand_sasa_isolated_nonpolar_A2",
+    "ligand_sasa_isolated_polar_A2",
+    "lig_bond_count",
+    "lig_bond_len_max_A",
+    "lig_bond_len_mean_A",
+    "lig_bond_len_min_A",
+    "lig_internal_clashes",
+    "lig_long_bonds",
+    "lig_min_nonbonded_dist_A",
+    "lig_short_bonds",
+    "ligand_pocket_probability",
+    "ligand_pocket_rank",
+    "ligand_pocket_score",
+    "ligand_to_pocket_center_dist_A",
+    "num_predicted_pockets",
+    "top_pocket_probability",
+    "top_pocket_score",
+    "metal_in_ligand_count",
+    "metal_observed_count",
+    "lig_aromatic_rings",
+    "lig_formal_charge",
+    "lig_fraction_csp3",
+    "lig_hba",
+    "lig_hbd",
+    "lig_heavy_atoms",
+    "lig_logp",
+    "lig_mol_weight",
+    "lig_num_heteroatoms",
+    "lig_ring_count",
+    "lig_rotatable_bonds",
+    "lig_tpsa"
+  ],
+  "value_qa_flagged": 1,
+  "dead_after_normalize": [],
+  "dev_poses": 368000,
+  "dev_systems": 3680,
+  "test_systems_untouched": 923,
+  "eligible_systems": 2877,
+  "model_top5": 0.9089,
+  "random_top5": 0.9133,
+  "lift": -0.0044,
+  "normalized_lift": -0.0506,
+  "net_targets": -12.6,
+  "room_targets": 249.5,
+  "oof_global_auc": 0.7386,
+  "oof_per_system_auc": 0.669,
+  "oof_per_system_auc_n": 1743,
+  "fold_metrics": [
+    {
+      "cv_fold": 0,
+      "train_poses": 135996,
+      "train_groups": 1375,
+      "valid_poses": 90100,
+      "valid_labeled": 75951,
+      "global_auc": 0.7524,
+      "per_system_auc": 0.6977,
+      "avg_precision": 0.855
+    },
+    {
+      "cv_fold": 1,
+      "train_poses": 133255,
+      "train_groups": 1360,
+      "valid_poses": 69500,
+      "valid_labeled": 62022,
+      "global_auc": 0.6964,
+      "per_system_auc": 0.6364,
+      "avg_precision": 0.7845
+    },
+    {
+      "cv_fold": 2,
+      "train_poses": 140149,
+      "train_groups": 1427,
+      "valid_poses": 69500,
+      "valid_labeled": 56812,
+      "global_auc": 0.717,
+      "per_system_auc": 0.6699,
+      "avg_precision": 0.8413
+    },
+    {
+      "cv_fold": 3,
+      "train_poses": 140090,
+      "train_groups": 1426,
+      "valid_poses": 69500,
+      "valid_labeled": 60011,
+      "global_auc": 0.7695,
+      "per_system_auc": 0.6476,
+      "avg_precision": 0.8576
+    },
+    {
+      "cv_fold": 4,
+      "train_poses": 136106,
+      "train_groups": 1384,
+      "valid_poses": 69400,
+      "valid_labeled": 60635,
+      "global_auc": 0.7549,
+      "per_system_auc": 0.6924,
+      "avg_precision": 0.843
+    }
+  ],
+  "top5_by_stratum": [
+    {
+      "stratum": "very_hard",
+      "range": "0.0-0.1",
+      "systems": 67,
+      "model_top5": 0.209,
+      "random_top5": 0.0693,
+      "lift": 0.1396,
+      "normalized_lift": 0.15,
+      "room_targets": 62.4,
+      "gained_targets": 9.4
+    },
+    {
+      "stratum": "hard",
+      "range": "0.1-0.3",
+      "systems": 79,
+      "model_top5": 0.3418,
+      "random_top5": 0.2006,
+      "lift": 0.1412,
+      "normalized_lift": 0.1766,
+      "room_targets": 63.2,
+      "gained_targets": 11.2
+    },
+    {
+      "stratum": "medium",
+      "range": "0.3-0.5",
+      "systems": 61,
+      "model_top5": 0.541,
+      "random_top5": 0.3777,
+      "lift": 0.1632,
+      "normalized_lift": 0.2623,
+      "room_targets": 38.0,
+      "gained_targets": 10.0
+    },
+    {
+      "stratum": "easy",
+      "range": "0.5-0.8",
+      "systems": 179,
+      "model_top5": 0.6425,
+      "random_top5": 0.6932,
+      "lift": -0.0508,
+      "normalized_lift": -0.1655,
+      "room_targets": 54.9,
+      "gained_targets": -9.1
+    },
+    {
+      "stratum": "very_easy",
+      "range": "0.8-1.01",
+      "systems": 2491,
+      "model_top5": 0.9739,
+      "random_top5": 0.9876,
+      "lift": -0.0136,
+      "normalized_lift": -1.0969,
+      "room_targets": 31.0,
+      "gained_targets": -34.0
+    }
+  ],
+  "compare": {
+    "path": "<DATA_ROOT>/Scoring_Function/out/baseline/28_run_baseline_f63",
+    "model_top5": 0.8999,
+    "random_top5": 0.9133,
+    "lift": -0.0134,
+    "mean_auc": 0.8022,
+    "top5_by_stratum": [
+      {
+        "stratum": "very_hard",
+        "range": "0.0-0.1",
+        "systems": 67,
+        "model_top5": 0.1642,
+        "random_top5": 0.0693,
+        "lift": 0.0948,
+        "normalized_lift": 0.1019
+      },
+      {
+        "stratum": "hard",
+        "range": "0.1-0.3",
+        "systems": 79,
+        "model_top5": 0.3165,
+        "random_top5": 0.2006,
+        "lift": 0.1159,
+        "normalized_lift": 0.145
+      },
+      {
+        "stratum": "medium",
+        "range": "0.3-0.5",
+        "systems": 61,
+        "model_top5": 0.5574,
+        "random_top5": 0.3777,
+        "lift": 0.1796,
+        "normalized_lift": 0.2887
+      },
+      {
+        "stratum": "easy",
+        "range": "0.5-0.8",
+        "systems": 179,
+        "model_top5": 0.6201,
+        "random_top5": 0.6932,
+        "lift": -0.0731,
+        "normalized_lift": -0.2384
+      },
+      {
+        "stratum": "very_easy",
+        "range": "0.8-1.01",
+        "systems": 2491,
+        "model_top5": 0.9667,
+        "random_top5": 0.9876,
+        "lift": -0.0209,
+        "normalized_lift": -1.6775
+      }
+    ]
+  },
+  "changed_sources": [],
+  "elapsed_seconds": 29.42014519206714,
+  "policy": [
+    "test 분할은 학습·평가에 사용하지 않았습니다.",
+    "18번 포켓 cluster 폴드를 그대로 썼고, 한 시스템이 여러 폴드에 걸치지 않는지 확인했습니다.",
+    "랭킹 그룹은 시스템이며, 비교는 시스템 안에서만 일어납니다.",
+    "라벨 결측 pose는 학습에서 제외하고 예측·순위에는 포함했습니다.",
+    "정규화에서 결측은 NaN으로 유지했습니다(평균 대입을 하지 않았습니다).",
+    "시스템 안에서 상수인 feature는 정규화 후 0이 되어 순위에 기여하지 않습니다.",
+    "동점은 pose_id SHA1 오름차순으로 결정적으로 깼습니다."
+  ],
+  "notes": [
+    "주지표는 oof_per_system_auc 입니다. 전역 AUC는 28번에서 시스템 난이도만 맞혀도 높게 나오는 것이 확인됐으므로 참고용입니다.",
+    "gained_targets 는 층별 lift를 타깃 개수로 환산한 값입니다. 비율 표가 숨기는 실제 득실(쉬운 층에서 토해내는 양)이 여기 보입니다.",
+    "eligible dev에서 무작위가 이미 0.91대이므로 남은 여백 전체가 room_targets 개뿐입니다. 이 값이 성능 상한입니다."
+  ]
+}
